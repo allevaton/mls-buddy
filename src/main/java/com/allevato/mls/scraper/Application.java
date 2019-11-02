@@ -15,7 +15,11 @@ public class Application {
   private static String authenticate() throws IOException {
     var startUrl = "https://vow.mlspin.com/clients/validate.aspx?id=";
     var connection =
-        Jsoup.connect(startUrl).requestBody("user=6403324&pass=imzosebt&signin=Sign+In");
+        Jsoup.connect(startUrl)
+            .requestBody(
+                String.format(
+                    "user=%s&pass=%s&signin=Sign+In",
+                    System.getenv("MLS_USERNAME"), System.getenv("MLS_PASSWORD")));
 
     var doc = connection.post();
     var response = connection.response();
