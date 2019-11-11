@@ -1,8 +1,8 @@
-package com.allevato.mls.scraper;
+package com.allevato.mlsbuddy.scraper;
 
-import com.allevato.mls.scraper.data.Property;
-import com.allevato.mls.scraper.data.PropertyStatus;
-import com.allevato.mls.scraper.data.PropertyType;
+import com.allevato.mlsbuddy.scraper.data.Property;
+import com.allevato.mlsbuddy.scraper.data.PropertyStatus;
+import com.allevato.mlsbuddy.scraper.data.PropertyType;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 

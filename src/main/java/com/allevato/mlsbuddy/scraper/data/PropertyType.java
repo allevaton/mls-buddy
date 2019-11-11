@@ -1,4 +1,4 @@
-package com.allevato.mls.scraper.data;
+package com.allevato.mlsbuddy.scraper.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
