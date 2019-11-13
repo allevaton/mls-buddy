@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.allevato.mlsbuddy'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.13
+sourceCompatibility = "12"
 
 configurations {
     developmentOnly

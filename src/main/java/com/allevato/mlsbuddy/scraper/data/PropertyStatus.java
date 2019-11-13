@@ -10,7 +10,8 @@ public enum PropertyStatus {
   ACT("Active"),
   PCG("Price Change"),
   OFF("Off Market"),
-  CTG("Contingent");
+  CTG("Contingent"),
+  RAC("Reactivated");
 
   @Getter private String status;
 }
