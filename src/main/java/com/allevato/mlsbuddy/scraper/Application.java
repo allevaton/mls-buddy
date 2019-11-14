@@ -9,6 +9,8 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class Application {
@@ -50,10 +52,12 @@ public class Application {
     return connection.get();
   }
 
-  public static void main(String[] args) throws IOException {
+  public static List<Property> scrapeAllProperties() throws IOException {
     var doc = getDocument(0);
 
     var pageCount = doc.select("select").get(0).children().size();
+
+    var properties = new ArrayList<Property>();
 
     for (int page = 0; page < pageCount; page++) {
       var mainTable = doc.select("table").get(7);
@@ -108,7 +112,10 @@ public class Application {
             e.printStackTrace();
           }
 
-          System.out.println(builder.build());
+          Property builtProperty = builder.build();
+          properties.add(builtProperty);
+
+          System.out.println(builtProperty);
         } catch (IllegalArgumentException e) {
           System.err.println("Failed to process entry");
           System.err.format("Current builder state: %s", builder.build());
@@ -118,5 +125,11 @@ public class Application {
 
       doc = getDocument(page + 1);
     }
+
+    return properties;
+  }
+
+  public static void main(String[] args) throws IOException {
+    scrapeAllProperties();
   }
 }
