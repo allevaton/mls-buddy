@@ -1,6 +1,6 @@
 package com.allevato.mlsbuddy.batchprocessing;
 
-import com.allevato.mlsbuddy.scraper.Application;
+import com.allevato.mlsbuddy.scraper.Scraper;
 import com.allevato.mlsbuddy.scraper.data.Property;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemReader;
@@ -16,8 +16,9 @@ public class PropertyListReader implements ItemReader<List<Property>> {
   @Override
   public List<Property> read()
       throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-    var scrapedProperties = Application.scrapeAllProperties();
+    var scraper = new Scraper();
+    var properties = scraper.scrapeAllProperties();
 
-    return scrapedProperties;
+    return properties;
   }
 }
